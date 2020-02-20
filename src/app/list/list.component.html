@@ -1,0 +1,63 @@
+<nb-layout>
+    <nb-layout-header>
+        <h1 routerLink="/" [style.color]= "'lightslategrey'"> Product Unit Dashboard </h1>
+    </nb-layout-header>
+    
+    <nb-layout-column class="colored-column-basic">
+<!-- Body  -->
+
+    <nb-card>
+            <nb-card-header status="success"> Product List </nb-card-header>
+                  <nb-card-body class="items-rows">
+                    <input id="typeahead-format" type="text" name="uiu" class="form-control" 
+                    [(ngModel)]="vakue" [ngbTypeahead]="search" [resultFormatter]="formatter" placeholder="Search for a Product" (ngModelChange)= "applyFilter(vakue)"/>
+                    <br>
+                          <table class="table">
+                            <thead class= "thead-dark">
+                              <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col"> Name</th>
+                                <th scope="col"> Description </th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col"> Action </th>
+                              </tr>
+                            </thead>
+                            <tbody *ngFor="let p of newProduct">
+                              <tr>
+                                <th scope="row">{{p.id}}</th>
+                                <td>{{ p.name }}</td>
+                                <td>{{ p.description }}</td>
+                                <td>{{ p.price }}</td>
+                                <td>{{ p.qty }}</td>
+                                <td> <button (click)="onEdit(p)" type="button" class="open-button btn btn-success mr-3"> Edit </button>
+                                <button (click)="onDelete(p.id)" type="button" class="open-button btn btn-danger"> <i class="fa fa-trash"> </i> </button> </td>
+                              </tr>
+                            </tbody>
+                          </table>
+        </nb-card-body>
+    </nb-card>
+    </nb-layout-column>
+
+
+<div class="form-popup" id="myForm">
+    <form action=" " class="form-container">
+      <h1>Login</h1>
+  
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+   
+      <button type="submit" class="btn">Login</button>
+      <button type="button" class="btn cancel" (click)="openForm()">Close</button>
+    </form>
+  </div> 
+  
+<!-- footer  -->
+    <nb-layout-footer>@techgeek</nb-layout-footer>
+  </nb-layout>
+
+
+

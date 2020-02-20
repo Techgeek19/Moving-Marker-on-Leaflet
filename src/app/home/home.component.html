@@ -1,0 +1,51 @@
+<nb-layout>
+    <nb-layout-header>
+        <h1 [style.color]= "'lightslategrey'"> Product Unit Dashboard </h1>
+        <button routerLink="/product" type="button" class="open-button btn btn-primary ml-4"> Product Table </button>
+    </nb-layout-header>
+
+    <nb-layout-column class="colored-column-basic">
+<!-- Body  -->
+
+    <nb-card>
+            <nb-card-header status="success"> Add Products </nb-card-header>
+            <nb-card-body class="items-rows">
+              <!-- form  -->
+              <div class="container">
+
+                <form #productForm = "ngForm" (ngSubmit)= "onSubmit()" >
+                    <div class="form-group">
+                      <label for="Input">Name</label>
+                      <input type="name" class="form-control" name="name" [(ngModel)]= "newProduct.name">
+                      <small class="form-text text-muted"> Add name of the Product </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="Input"> Description </label>
+                      <input type="text" class="form-control" name="description" [(ngModel)]= "newProduct.description">
+                    </div>
+                    <div class="form-group">
+                        <label for="Input"> Price </label>
+                        <input type="number" class="form-control" name="price" [(ngModel)]= "newProduct.price">
+                      </div>
+                      <div class="form-group">
+                        <label for="Input"> Quantity </label>
+                        <input type="number" class="form-control" name="qty" [(ngModel)]= "newProduct.qty">
+                      </div>
+                    <button  type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                
+              </div>
+              <br>
+            
+              <!-- <input type="text" nbInput placeholder="Name">  
+              <input type="text" nbInput placeholder="Description">    
+              <input type="text" nbInput placeholder="Price">    
+              <input type="text" nbInput placeholder="Quantity">    
+              <button (click)= "postdata()" type="submit" method="post" action="/" nbButton status="primary"> ADD</button> -->
+        </nb-card-body>
+    </nb-card> 
+    </nb-layout-column>
+  
+<!-- footer  -->
+    <nb-layout-footer>@techgeek</nb-layout-footer>
+  </nb-layout>
